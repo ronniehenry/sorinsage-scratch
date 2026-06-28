@@ -32,15 +32,15 @@ log_info "Blocking snapd from being reinstalled as a dependency"
 cat <<'EOF' | sudo tee /etc/apt/preferences.d/no-snap.pref >/dev/null
 Package: snapd
 Pin: release *
-Pin-Priority: -1
+Pin-Priority: -10
 EOF
 
 log_info "Adding Mozilla Team PPA so Firefox installs as a real .deb (Ubuntu's default Firefox is snap-only)"
 if apt_repo_add_once "ppa:mozilla-team/ppa" "mozilla-team"; then
-  cat <<'EOF' | sudo tee /etc/apt/preferences.d/mozilla-firefox.pref >/dev/null
+  sudo tee /etc/apt/preferences.d/mozilla-firefox >/dev/null <<EOF
 Package: firefox*
-Pin: release o=LP-PPA-mozilla-team
-Pin-Priority: 1001
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 501
 EOF
   sudo apt-get update
 fi
