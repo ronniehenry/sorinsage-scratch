@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 04-gnome-extensions.sh — install gnome-extensions-cli + enable the SorinSage extension set
+# 04-gnome-extensions.sh — install gnome-extensions-cli + Tweaks/Extension Manager GUIs, enable the SorinSage extension set
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
@@ -15,7 +15,7 @@ declare -A EXTENSIONS=(
   ["appindicatorsupport@rgcjonas.gmail.com"]="AppIndicator and KStatusNotifierItem Support"
 )
 
-apt_install pipx gnome-shell-extension-manager
+apt_install pipx gnome-shell-extension-manager gnome-tweaks
 
 if ! command -v gext &>/dev/null; then
   log_info "Installing gnome-extensions-cli (gext) via pipx"
@@ -46,4 +46,5 @@ for uuid in "${!EXTENSIONS[@]}"; do
 done
 
 log_warn "Papirus icon theme + teal folder colors are applied via gsettings in 02-gnome-settings.sh and the papirus-folders tool in 06-apps.sh"
+log_info "GNOME Tweaks installed — useful for icon/GTK theme, fonts, and titlebar button tweaks not covered by gsettings/extensions"
 log_info "GNOME extensions step complete. A Shell restart (Alt+F2, 'r', Enter on Xorg; logout/login on Wayland) may be needed for full effect."

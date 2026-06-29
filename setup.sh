@@ -42,7 +42,7 @@ MODULES=(
   "01-desnap.sh:De-snap Ubuntu"
   "02-gnome-settings.sh:GNOME settings"
   "03-fonts.sh:Fonts (Atkinson Hyperlegible via apt + Fedora-style rendering)"
-  "04-gnome-extensions.sh:GNOME extensions"
+  "04-gnome-extensions.sh:GNOME extensions, Tweaks, and Extension Manager"
   "05-flatpak-appimage.sh:Flatpak + AppImage support"
   "06-dev-tools.sh:Development tools (PyCharm, Arduino IDE, VS Code, Zed, PlatformIO, git extensions)"
   "07-apps.sh:Applications (Firefox, GIMP, Inkscape, Kdenlive, etc.)"
