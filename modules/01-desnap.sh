@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# 01-desnap.sh — remove snapd and replace common snap defaults with apt/deb equivalents
+# 01-desnap.sh — remove snapd and prevent it from coming back
+# (snap-default apps like Firefox get reinstalled via apt/flatpak in later modules)
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
@@ -32,17 +33,7 @@ log_info "Blocking snapd from being reinstalled as a dependency"
 cat <<'EOF' | sudo tee /etc/apt/preferences.d/no-snap.pref >/dev/null
 Package: snapd
 Pin: release *
-Pin-Priority: -10
+Pin-Priority: -1
 EOF
 
-log_info "Adding Mozilla Team PPA so Firefox installs as a real .deb (Ubuntu's default Firefox is snap-only)"
-if apt_repo_add_once "ppa:mozilla-team/ppa" "mozilla-team"; then
-  sudo tee /etc/apt/preferences.d/mozilla-firefox >/dev/null <<EOF
-Package: firefox*
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 501
-EOF
-  sudo apt-get update
-fi
-
-log_info "Desnap complete. Firefox will be installed via apt in the apps module."
+log_info "Desnap complete. Firefox will be installed via flatpak in the apps module (no PPA needed)."

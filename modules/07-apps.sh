@@ -6,14 +6,15 @@ source "${SCRIPT_DIR}/lib/common.sh"
 
 log_section "Applications"
 
-# ---- Firefox (.deb via Mozilla PPA, pinned in 01-desnap.sh) -----------------
-apt_install firefox
-
 # ---- apt-available creative/media/utility apps ------------------------------
 apt_install gimp inkscape vlc transmission-gtk timeshift
 
 # ---- Flatpak apps (better upstream cadence / avoids snap entirely) ----------
+# Firefox here is Mozilla's own official Flathub build (org.mozilla.firefox)
+# — the real rapid-release browser, not the ESR/transitional-dummy mess that
+# comes with trying to get a plain Firefox .deb on Ubuntu.
 flatpak_install \
+  org.mozilla.firefox \
   org.kde.kdenlive \
   fr.handbrake.ghb \
   org.strawberrymusicplayer.strawberry \
