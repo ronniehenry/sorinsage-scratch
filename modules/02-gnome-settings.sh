@@ -4,7 +4,7 @@
 # This is a SCAFFOLD. Fill in / uncomment the values that match your actual
 # setup — these are placeholders grouped by category based on what we've
 # discussed (Just Perfection-style minimalism, sage/teal aesthetic,
-# Papirus icons, MX Master 3S + Attack Shark V5 dual-mouse use).
+# MX Master 3S + Attack Shark V5 dual-mouse use).
 #
 # Tip: to pull your CURRENT live values for any key, run:
 #   gsettings get <schema> <key>
@@ -17,7 +17,9 @@ log_section "GNOME settings"
 
 # ---- Interface / appearance ----------------------------------------------
 gset org.gnome.desktop.interface color-scheme 'prefer-dark'
-gset org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gset org.gnome.desktop.interface icon-theme 'Yaru-sage-dark'
+# Note: yaru-theme-icon (which ships Yaru-sage-dark) is installed in 07-apps.sh.
+# gsettings stores the preference now; GNOME applies it once the package lands.
 # gset org.gnome.desktop.interface gtk-theme 'YOUR_GTK_THEME'
 gset org.gnome.desktop.interface cursor-theme 'Adwaita'
 gset org.gnome.desktop.interface clock-show-weekday true

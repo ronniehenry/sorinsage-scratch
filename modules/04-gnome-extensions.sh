@@ -45,6 +45,4 @@ for uuid in "${!EXTENSIONS[@]}"; do
   gext_enable "$uuid"
 done
 
-log_warn "Papirus icon theme + teal folder colors are applied via gsettings in 02-gnome-settings.sh and the papirus-folders tool in 06-apps.sh"
-log_info "GNOME Tweaks installed — useful for icon/GTK theme, fonts, and titlebar button tweaks not covered by gsettings/extensions"
 log_info "GNOME extensions step complete. A Shell restart (Alt+F2, 'r', Enter on Xorg; logout/login on Wayland) may be needed for full effect."
