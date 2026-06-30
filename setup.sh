@@ -38,13 +38,13 @@ require_not_root
 require_ubuntu
 
 MODULES=(
-  "00-system-update.sh:System update (apt update && upgrade)"
+  "00-system-update.sh:System update (apt update, upgrade, autoremove)"
   "01-desnap.sh:De-snap Ubuntu"
   "02-gnome-settings.sh:GNOME settings"
   "03-fonts.sh:Fonts (Atkinson Hyperlegible via apt + Fedora-style rendering)"
   "04-gnome-extensions.sh:GNOME extensions, Tweaks, and Extension Manager"
   "05-flatpak-appimage.sh:Flatpak + AppImage support"
-  "06-dev-tools.sh:Development tools (PyCharm, Arduino IDE, VS Code, Zed, PlatformIO, git extensions)"
+  "06-dev-tools.sh:Development tools (VS Code, Zed)"
   "07-apps.sh:Applications (Firefox, GIMP, Inkscape, Kdenlive, etc.)"
   "08-zsh.sh:zsh + oh-my-zsh (set as default shell)"
 )

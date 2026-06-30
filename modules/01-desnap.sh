@@ -49,9 +49,22 @@ else
   sudo rm -rf /snap /var/snap /var/lib/snapd
 fi
 
+log_info "Removing GNOME Software's snap search/install plugin"
+# This is a separate apt package from snapd itself — without removing it,
+# GNOME Software (and Activities search) can keep surfacing "install via
+# Snap Store" results / permission prompts even after snapd is fully purged.
+if dpkg -s gnome-software-plugin-snap &>/dev/null; then
+  sudo apt-get purge -y gnome-software-plugin-snap
+fi
+sudo apt-mark hold gnome-software-plugin-snap 2>/dev/null || true
+
 log_info "Blocking snapd from being reinstalled as a dependency"
 cat <<'EOF' | sudo tee /etc/apt/preferences.d/no-snap.pref >/dev/null
 Package: snapd
+Pin: release *
+Pin-Priority: -1
+
+Package: gnome-software-plugin-snap
 Pin: release *
 Pin-Priority: -1
 EOF

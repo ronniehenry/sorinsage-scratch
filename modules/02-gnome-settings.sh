@@ -3,7 +3,7 @@
 #
 # This is a SCAFFOLD. Fill in / uncomment the values that match your actual
 # setup — these are placeholders grouped by category based on what we've
-# discussed (Just Perfection-style minimalism, sage/teal aesthetic,
+# discussed (calm, minimal, sage/teal aesthetic,
 # MX Master 3S + Attack Shark V5 dual-mouse use).
 #
 # Tip: to pull your CURRENT live values for any key, run:
@@ -53,18 +53,10 @@ gset org.gnome.nautilus.list-view use-tree-view true
 gset org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
 gset org.gnome.desktop.session idle-delay 'uint32 600'
 
-# ---- Extension-specific settings (placeholders — fill in once 03 runs) -----
-# Just Perfection
-# gsettings set org.gnome.shell.extensions.just-perfection panel true
-# gsettings set org.gnome.shell.extensions.just-perfection workspace-switcher-should-show true
-
-# Blur My Shell
-# gsettings set org.gnome.shell.extensions.blur-my-shell.panel blur true
-# gsettings set org.gnome.shell.extensions.blur-my-shell.panel pipeline 'pipeline_default'
-
+# ---- Extension-specific settings (placeholders — fill in once 04 runs) -----
 # Rounded Window Corners Reborn — usually configured via its own GUI prefs,
 # not plain gsettings; open the Extension Manager / extension settings after
-# module 03 to tune corner radius, smoothing, and skip lists.
+# module 04 to tune corner radius, smoothing, and skip lists.
 
 log_warn "This module is a placeholder scaffold — review and edit the gsettings keys above to match your live config before relying on it."
 log_info "GNOME settings step complete"

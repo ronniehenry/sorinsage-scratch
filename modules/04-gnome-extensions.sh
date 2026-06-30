@@ -9,10 +9,7 @@ log_section "GNOME extensions"
 # Extension UUIDs (from extensions.gnome.org). gnome-extensions-cli (gext) can
 # install by UUID without needing the browser connector.
 declare -A EXTENSIONS=(
-  ["blur-my-shell@aunetx"]="Blur my Shell"
-  ["just-perfection-desktop@just-perfection"]="Just Perfection"
   ["rounded-window-corners@fxgn"]="Rounded Window Corners Reborn"
-  ["appindicatorsupport@rgcjonas.gmail.com"]="AppIndicator and KStatusNotifierItem Support"
 )
 
 apt_install pipx gnome-shell-extension-manager gnome-tweaks

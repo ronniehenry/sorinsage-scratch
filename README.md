@@ -1,4 +1,4 @@
-# sorinsage-scratch
+# sorinsage-setup
 
 Modular post-install setup script for Ubuntu 26.04 LTS (GNOME), built for the
 SorinSage workstation.
@@ -20,13 +20,13 @@ will refuse to run as root.
 
 | # | Module | What it does |
 |---|--------|---------------|
-| 00 | `00-system-update.sh` | `apt update && apt upgrade -y` |
-| 01 | `01-desnap.sh` | Removes snapd entirely, purges leftover snap dirs, pins snapd so it can't sneak back in |
+| 00 | `00-system-update.sh` | `apt update && apt upgrade -y && apt autoremove -y` |
+| 01 | `01-desnap.sh` | Removes snapd entirely, purges leftover snap dirs, removes the GNOME Software snap search/install plugin, pins both so they can't sneak back in |
 | 02 | `02-gnome-settings.sh` | **Placeholder scaffold** — gsettings grouped by category (interface, window management, peripherals, privacy, Nautilus, power, extension prefs). Edit the values to match your live config. |
 | 03 | `03-fonts.sh` | Installs Atkinson Hyperlegible via apt (`fonts-atkinson-hyperlegible`, `-ttf` — lives in Ubuntu's `universe` repo, no Google Fonts download needed), sets it as the system/document/titlebar font, then applies Fedora-style font *rendering* (hintslight, rgb subpixel, lcddefault) via `~/.config/fontconfig/fonts.conf` + matching gsettings |
-| 04 | `04-gnome-extensions.sh` | Installs GNOME Tweaks + Extension Manager (GUI tools) and `gext` (gnome-extensions-cli) via pipx, installs + enables Blur My Shell, Just Perfection, Rounded Window Corners Reborn, AppIndicator Support |
+| 04 | `04-gnome-extensions.sh` | Installs GNOME Tweaks + Extension Manager (GUI tools) and `gext` (gnome-extensions-cli) via pipx, installs + enables Rounded Window Corners Reborn |
 | 05 | `05-flatpak-appimage.sh` | Flatpak + Flathub remote; FUSE for AppImage support (Gearlever itself installs in 07) |
-| 06 | `06-dev-tools.sh` | VS Code (MS apt repo), Zed (official installer), PyCharm Community + Arduino IDE (flatpak), PlatformIO + git-related VS Code extensions |
+| 06 | `06-dev-tools.sh` | VS Code (MS apt repo), Zed (official installer). Extensions are not installed by the script — sign into GitHub Settings Sync in VS Code to pull your real extension set down. Arduino IDE is not installed here either — grab the AppImage from arduino.cc and manage it with Gearlever. |
 | 07 | `07-apps.sh` | GIMP, Inkscape, VLC, Transmission, Timeshift (apt) + Firefox, Kdenlive, HandBrake, Strawberry, LocalSend, Gearlever, Embellish (Nerd Font installer/manager) (flatpak) |
 | 08 | `08-zsh.sh` | Installs zsh + oh-my-zsh (unattended install, keeps any existing `.zshrc`), sets `ZSH_THEME` to `bira`, sets zsh as your default login shell via `chsh` |
 

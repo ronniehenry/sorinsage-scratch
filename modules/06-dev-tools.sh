@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 06-dev-tools.sh — PyCharm, Arduino IDE, VS Code, Zed + PlatformIO/git VS Code extensions
+# 06-dev-tools.sh — VS Code, Zed
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
@@ -29,34 +29,12 @@ else
   log_skip "Zed"
 fi
 
-# ---- PyCharm Community (flatpak — cleanest non-snap path) -------------------
-flatpak_install com.jetbrains.PyCharm-Community
+# NOTE: Arduino IDE is intentionally not installed here — download the
+# AppImage directly from arduino.cc and manage it with Gearlever (installed
+# in 07-apps.sh) instead.
 
-# ---- Arduino IDE (flatpak — official Arduino flatpak, avoids snap/AppImage churn) --
-flatpak_install cc.arduino.IDE2
-
-log_section "VS Code extensions"
-
-if command -v code &>/dev/null; then
-  VSCODE_EXTENSIONS=(
-    platformio.platformio-ide
-    eamodio.gitlens
-    github.vscode-pull-request-github
-    mhutchie.git-graph
-    donjayamanne.githistory
-    ms-vscode.cpptools
-    ms-python.python
-  )
-  for ext in "${VSCODE_EXTENSIONS[@]}"; do
-    if code --list-extensions | grep -qix "$ext"; then
-      log_skip "$ext"
-    else
-      log_info "Installing VS Code extension: $ext"
-      code --install-extension "$ext" --force
-    fi
-  done
-else
-  log_warn "VS Code binary not found on PATH yet — re-run this module after a fresh shell, or install extensions manually."
-fi
+# NOTE: VS Code extensions are intentionally not installed here — sign into
+# GitHub Settings Sync in VS Code after this script runs, and your real
+# extension set (PlatformIO, GitLens, etc.) will sync down on its own.
 
 log_info "Dev tools step complete"
