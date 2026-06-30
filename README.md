@@ -1,4 +1,4 @@
-# sorinsage-setup
+# sorinsage-scratch
 
 Modular post-install setup script for Ubuntu 26.04 LTS (GNOME), built for the
 SorinSage workstation.
