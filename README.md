@@ -21,7 +21,6 @@ will refuse to run as root.
 | # | Module | What it does |
 |---|--------|---------------|
 | 00 | `00-system-update.sh` | `apt update && apt upgrade -y && apt autoremove -y` |
-| 01 | `01-desnap.sh` | Removes snapd entirely, purges leftover snap dirs, removes the GNOME Software snap search/install plugin, pins both so they can't sneak back in |
 | 02 | `02-gnome-settings.sh` | **Placeholder scaffold** — gsettings grouped by category (interface, window management, peripherals, privacy, Nautilus, power, extension prefs). Edit the values to match your live config. |
 | 03 | `03-fonts.sh` | Installs Atkinson Hyperlegible via apt (`fonts-atkinson-hyperlegible`, `-ttf` — lives in Ubuntu's `universe` repo, no Google Fonts download needed), sets it as the system/document/titlebar font, then applies Fedora-style font *rendering* (hintslight, rgb subpixel, lcddefault) via `~/.config/fontconfig/fonts.conf` + matching gsettings |
 | 04 | `04-gnome-extensions.sh` | Installs GNOME Tweaks + Extension Manager (GUI tools) and `gext` (gnome-extensions-cli) via pipx, installs + enables Rounded Window Corners Reborn |
@@ -33,12 +32,9 @@ will refuse to run as root.
 ## Notes
 
 - **Firefox installs as the official Mozilla flatpak** (`org.mozilla.firefox`
-  on Flathub) rather than via apt. This sidesteps the PPA/pinning mess
-  entirely — Ubuntu's own `firefox` apt package is just a transitional dummy
-  pointing at the snap, and there's no real rapid-release `.deb` available
-  for this Ubuntu release any other way. Profile data lives under
-  `~/.var/app/org.mozilla.firefox/` instead of `~/.mozilla/`, which matters
-  if you ever migrate an old profile in.
+  on Flathub) — Mozilla's own build, not a community repackage. Profile data
+  lives under `~/.var/app/org.mozilla.firefox/` instead of `~/.mozilla/`,
+  which matters if you ever migrate an old profile in.
 - **Module 02 is intentionally a placeholder.** You chose to scaffold rather
   than paste a dconf dump, so review every `gset` line before trusting it —
   some values are reasonable guesses, not your actual current config.
