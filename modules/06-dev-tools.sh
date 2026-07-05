@@ -6,10 +6,13 @@ source "${SCRIPT_DIR}/lib/common.sh"
 
 log_section "Development tools"
 
+# Ensure prerequisites are present before any download/install steps.
+# curl is needed for the Zed installer; wget and gpg for the VS Code repo.
+apt_install curl wget gpg apt-transport-https
+
 # ---- VS Code (Microsoft's official apt repo, since it's snap-free) --------
 if ! command -v code &>/dev/null; then
   log_info "Adding Microsoft VS Code apt repo"
-  sudo apt-get install -y wget gpg apt-transport-https
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /tmp/packages.microsoft.gpg
   sudo install -D -o root -g root -m 644 /tmp/packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
   echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
