@@ -37,7 +37,7 @@ fi
 # in 07-apps.sh) instead.
 
 # NOTE: VS Code extensions are intentionally not installed here — sign into
-# GitHub Settings Sync in VS Code after this script runs, and your real
+# GitHub Settings Sync in VS Code after this script runs, so the predefined
 # extension set (PlatformIO, GitLens, etc.) will sync down on its own.
 
 log_info "Dev tools step complete"
