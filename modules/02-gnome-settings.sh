@@ -28,7 +28,6 @@ gset org.gnome.mutter dynamic-workspaces true
 gset org.gnome.desktop.wm.preferences num-workspaces 4
 
 # ---- Touchpad / mouse -------------------------------------------------------
-# Relevant given your MX Master 3S (dev/video editing) + Attack Shark V5 (casual/gaming)
 gset org.gnome.desktop.peripherals.mouse accel-profile 'default'
 gset org.gnome.desktop.peripherals.touchpad tap-to-click true
 gset org.gnome.desktop.peripherals.touchpad natural-scroll true
