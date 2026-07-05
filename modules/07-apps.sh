@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 07-apps.sh — Firefox, creative/media apps, utilities
+# 07-apps.sh — creative/media apps, utilities
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"

@@ -20,7 +20,7 @@ log_section "AppImage support (FUSE + Gearlever)"
 # Ubuntu 22.04+ ships libfuse2t64 / libfuse2 depending on release; try both.
 apt_install libfuse2t64 2>/dev/null || apt_install libfuse2
 
-# Gearlever itself is installed as a flatpak in the apps module (06-apps.sh),
+# Gearlever itself is installed as a flatpak in the apps module (07-apps.sh),
 # since it's listed there too. We just make sure the runtime prerequisite
 # (FUSE) is present here so AppImages can mount/run correctly regardless of
 # install order.
