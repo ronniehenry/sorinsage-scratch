@@ -12,7 +12,7 @@ declare -A EXTENSIONS=(
   ["rounded-window-corners@fxgn"]="Rounded Window Corners Reborn"
 )
 
-apt_install pipx gnome-shell-extension-manager gnome-tweaks
+apt_install pipx gnome-shell-extension-manager gnome-tweaks software-properties-gtk
 
 if ! command -v gext &>/dev/null; then
   log_info "Installing gnome-extensions-cli (gext) via pipx"
