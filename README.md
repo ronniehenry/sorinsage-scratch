@@ -21,6 +21,7 @@ will refuse to run as root.
 | # | Module | What it does |
 |---|--------|---------------|
 | 00 | `00-system-update.sh` | `apt update && apt upgrade -y && apt autoremove -y` |
+| 01 | `01-system-extras.sh` | Enables UFW firewall (deny incoming / allow outgoing), installs `ubuntu-restricted-extras` (MP3/AAC/codecs + Microsoft fonts, EULA pre-accepted), installs `libdvd-pkg` and runs `dpkg-reconfigure` to compile DVD CSS support |
 | 02 | `02-gnome-settings.sh` | **Placeholder scaffold** — gsettings grouped by category (interface, window management, peripherals, privacy, Nautilus, power, extension prefs). Edit the values to match your live config. |
 | 03 | `03-fonts.sh` | Installs Atkinson Hyperlegible via apt (`fonts-atkinson-hyperlegible`, `-ttf` — lives in Ubuntu's `universe` repo, no Google Fonts download needed), sets it as the system/document/titlebar font, then applies Fedora-style font *rendering* (hintslight, rgb subpixel, lcddefault) via `~/.config/fontconfig/fonts.conf` + matching gsettings |
 | 04 | `04-gnome-extensions.sh` | Installs GNOME Tweaks + Extension Manager (GUI tools) and `gext` (gnome-extensions-cli) via pipx, installs + enables Rounded Window Corners Reborn |

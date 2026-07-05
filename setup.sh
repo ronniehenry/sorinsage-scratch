@@ -39,6 +39,7 @@ require_ubuntu
 
 MODULES=(
   "00-system-update.sh:System update (apt update, upgrade, autoremove)"
+  "01-system-extras.sh:System extras (UFW firewall, restricted codecs, DVD support)"
   "02-gnome-settings.sh:GNOME settings"
   "03-fonts.sh:Fonts (Atkinson Hyperlegible via apt + Fedora-style rendering)"
   "04-gnome-extensions.sh:GNOME extensions, Tweaks, and Extension Manager"
