@@ -32,10 +32,6 @@ will refuse to run as root.
 
 ## Notes
 
-- **Firefox installs as the official Mozilla flatpak** (`org.mozilla.firefox`
-  on Flathub) — Mozilla's own build, not a community repackage. Profile data
-  lives under `~/.var/app/org.mozilla.firefox/` instead of `~/.mozilla/`,
-  which matters if you ever migrate an old profile in.
 - **Module 02 is intentionally a placeholder.** You chose to scaffold rather
   than paste a dconf dump, so review every `gset` line before trusting it —
   some values are reasonable guesses, not your actual current config.
