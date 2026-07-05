@@ -26,7 +26,7 @@ will refuse to run as root.
 | 04 | `04-gnome-extensions.sh` | Installs GNOME Tweaks + Extension Manager (GUI tools) and `gext` (gnome-extensions-cli) via pipx, installs + enables Rounded Window Corners Reborn |
 | 05 | `05-flatpak-appimage.sh` | Flatpak + Flathub remote; FUSE for AppImage support (Gearlever itself installs in 07) |
 | 06 | `06-dev-tools.sh` | VS Code (MS apt repo), Zed (official installer). Extensions are not installed by the script — sign into GitHub Settings Sync in VS Code to pull your real extension set down. Arduino IDE is not installed here either — grab the AppImage from arduino.cc and manage it with Gearlever. |
-| 07 | `07-apps.sh` | GIMP, Inkscape, VLC, Transmission, Timeshift (apt) + Firefox, Kdenlive, HandBrake, Strawberry, LocalSend, Gearlever, Embellish (Nerd Font installer/manager) (flatpak) |
+| 07 | `07-apps.sh` | GIMP, Inkscape, VLC, Transmission, Timeshift (apt) + Kdenlive, HandBrake, Strawberry, LocalSend, Gearlever, Embellish (Nerd Font installer/manager) (flatpak) |
 | 08 | `08-zsh.sh` | Installs zsh + oh-my-zsh (unattended install, keeps any existing `.zshrc`), sets `ZSH_THEME` to `bira`, sets zsh as your default login shell via `chsh` |
 
 ## Notes
