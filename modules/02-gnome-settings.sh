@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 # 02-gnome-settings.sh — apply SorinSage GNOME gsettings
-#
-# This is a SCAFFOLD. Fill in / uncomment the values that match your actual
-# setup — these are placeholders grouped by category based on what we've
-# discussed (calm, minimal, sage/teal aesthetic,
-# MX Master 3S + Attack Shark V5 dual-mouse use).
-#
-# Tip: to pull your CURRENT live values for any key, run:
-#   gsettings get <schema> <key>
-# and paste the result in below to lock in what you already have.
+
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
